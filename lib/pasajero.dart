@@ -7,10 +7,16 @@ class pasajero extends StatelessWidget{
       home: Scaffold(
         body: Column(
           children: <Widget>[
-            /*
-            Image.network(
-              "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            ),*/
+            Container(
+              margin: EdgeInsets.only(bottom: 10),
+              height: 170,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage('android/assets/images/profile.jpg'),
+                ),
+              ),
+            ),
             SizedBox(
               child: Text(
               'Nombre',

@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
+//import 'ExpansionPanelList';
+
+
 
 class conductor extends StatelessWidget{
+
+  bool active = false;
+
   @override
   Widget build(BuildContext context){
     return MaterialApp(
       home: Scaffold(
         body: Column(
           children: <Widget> [
-            /*Image.network(
-              "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            ),*/
+              Container(
+              margin: EdgeInsets.only(bottom: 10),
+              height: 170,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage('android/assets/images/profile.jpg'),
+                ),
+              ),
+            ),
             SizedBox(
               child: Text(
               'Nombre',
@@ -80,11 +93,46 @@ class conductor extends StatelessWidget{
               style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18, color: Colors.grey),
               )
             ),
-
+            Expanded(
+                child: _expansionPanel(),
+              )
+              
+           
           ],
         )
         ,)
 
     );
   }
+  
+  _expansionPanel() {
+    return ListView(children: [
+      ExpansionPanelList(
+        expansionCallback: (index, expanded){
+          print("index: ${index}");
+          setState((){
+            active = !active;
+          });
+        },
+        children: <ExpansionPanel>[
+          ExpansionPanel(
+            headerBuilder: (BuildContext context, bool isExpanded) {
+            return ListTile(
+              title: Text('Preferencias')
+            );
+            },
+            body: ListTile(
+              title: Text('Genero a quien se le va a dar raite'),
+              subtitle: Text('Hombre-Mujer'),
+              ),
+              isExpanded: active
+              )
+        ],
+      )
+    ],);
+
+
+  }
+  
+  void setState(Null Function() param0) {}
 }
