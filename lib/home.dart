@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pasajero.dart';
 import 'conductor.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Home extends StatefulWidget{
   _HomeState createState() => _HomeState();
@@ -30,9 +31,20 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
   Widget build(BuildContext context){
     return Scaffold(
       appBar:AppBar(
-        title: Text('PERFIL'),
-      ),
-      drawer: Drawer(
+        iconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0)),
+        title: Text('Preferencias',
+        style: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)
+        )),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {},
+          )
+        ],
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        ),
+      drawer:  Drawer(
         child: ListView(
           children: <Widget>[
             ListTile(
@@ -81,6 +93,42 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
             ),
           )
         ],
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 80),
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 10, 161, 7),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(.1),
+              blurRadius: 20,
+              offset: Offset(0,10)
+            )
+          ],
+          borderRadius: BorderRadius.circular(50)
+        ),
+        child: GNav(tabBackgroundColor: Colors.white,
+        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+        tabs: [
+        GButton(
+          icon: Icons.home,
+          text:'Inicio',
+          //iconActiveColor: Colors.white,
+          //textColor: Colors.white,
+        ),
+        GButton(
+          icon: Icons.article_outlined,
+          text:'Historial',
+          //iconActiveColor: Colors.white,
+          //textColor: Colors.white,
+        ),
+        GButton(
+          icon: Icons.person,
+          text:'Perfil',
+          //iconActiveColor: Colors.white,
+          //textColor: Colors.white,
+        ),
+        ]),
       ),
     );
   }
