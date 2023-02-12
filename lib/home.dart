@@ -95,7 +95,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         ],
       ),
       bottomNavigationBar: Container(
-        padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 80),
+        padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 10, 161, 7),
           boxShadow: [
@@ -105,30 +105,35 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
               offset: Offset(0,10)
             )
           ],
-          borderRadius: BorderRadius.circular(50)
+          borderRadius: BorderRadius.circular(20)
         ),
-        child: GNav(tabBackgroundColor: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
-        tabs: [
-        GButton(
-          icon: Icons.home,
-          text:'Inicio',
-          //iconActiveColor: Colors.white,
-          //textColor: Colors.white,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(2.0),
+            child: GNav(tabBackgroundColor: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 35),
+            tabs: [
+            GButton(
+              icon: Icons.home,
+              text:'Inicio',
+              //iconActiveColor: Colors.white,
+              //textColor: Colors.white,
+            ),
+            GButton(
+              icon: Icons.article_outlined,
+              text:'Historial',
+              //iconActiveColor: Colors.white,
+              //textColor: Colors.white,
+            ),
+            GButton(
+              icon: Icons.person,
+              text:'Perfil',
+              //iconActiveColor: Colors.white,
+              //textColor: Colors.white,
+            ),
+            ]),
+          ),
         ),
-        GButton(
-          icon: Icons.article_outlined,
-          text:'Historial',
-          //iconActiveColor: Colors.white,
-          //textColor: Colors.white,
-        ),
-        GButton(
-          icon: Icons.person,
-          text:'Perfil',
-          //iconActiveColor: Colors.white,
-          //textColor: Colors.white,
-        ),
-        ]),
       ),
     );
   }

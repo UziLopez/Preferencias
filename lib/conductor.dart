@@ -13,16 +13,19 @@ class conductor extends StatelessWidget{
       home: Scaffold(
         body: Column(
           children: <Widget> [
-              Container(
-              margin: EdgeInsets.only(bottom: 10),
-              height: 170,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage('android/assets/images/profile.jpg'),
+              Padding(
+                padding: const EdgeInsets.all(11.0),
+                child: Container(
+                margin: EdgeInsets.only(bottom: 10),
+                height: 150,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage('android/assets/images/profile.jpg'),
+                  ),
                 ),
-              ),
             ),
+              ),
             SizedBox(
               child: Text(
               'Nombre',
@@ -46,7 +49,7 @@ class conductor extends StatelessWidget{
             ),
             SizedBox(
               child: Text(
-              'Fluido',
+              'Mujer',
               textAlign: TextAlign.left,
               style: TextStyle(fontWeight: FontWeight.normal, fontSize: 18, color: Colors.grey),
               )
